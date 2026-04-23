@@ -8,11 +8,21 @@ export default function ComoFunciona() {
 
   return (
     <section style={{background: '#f5f7ff', padding: '70px 5%', textAlign: 'center'}}>
+      <style>{`
+        .cf-grid { display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; }
+        .cf-card { background: #fff; border-radius: 14px; padding: 32px 24px; box-shadow: 0 2px 16px rgba(13,27,75,0.07); flex: 1; min-width: 180px; max-width: 230px; }
+        @media (max-width: 768px) {
+          .cf-card { min-width: calc(50% - 12px); max-width: calc(50% - 12px); box-sizing: border-box; padding: 24px 16px; }
+        }
+        @media (max-width: 480px) {
+          .cf-card { min-width: 100%; max-width: 100%; }
+        }
+      `}</style>
       <div style={{color: '#1a3a8f', fontSize: '13px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '1.5px', marginBottom: '10px'}}>Proceso simple</div>
       <h2 style={{fontSize: '32px', fontWeight: 800, color: '#0d1b4b', marginBottom: '50px'}}>¿Cómo funciona?</h2>
-      <div style={{display: 'flex', gap: '24px', justifyContent: 'center', flexWrap: 'wrap'}}>
+      <div className="cf-grid">
         {pasos.map((paso) => (
-          <div key={paso.num} style={{background: '#fff', borderRadius: '14px', padding: '32px 24px', maxWidth: '230px', boxShadow: '0 2px 16px rgba(13,27,75,0.07)', flex: 1, minWidth: '180px'}}>
+          <div key={paso.num} className="cf-card">
             <div style={{width: '48px', height: '48px', background: '#0d1b4b', color: '#f0a500', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 800, fontSize: '18px', margin: '0 auto 16px'}}>
               {paso.num}
             </div>
